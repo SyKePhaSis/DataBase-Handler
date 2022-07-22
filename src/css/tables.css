@@ -1,0 +1,9 @@
+.tables {
+    margin-top: 40px;
+}
+
+.addRow-div{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
