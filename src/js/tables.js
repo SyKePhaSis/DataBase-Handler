@@ -36,6 +36,7 @@ function createTable(name) {
         }
         tableBody.appendChild(element);
     }
+    document.getElementById('loadingAnim').style.display = 'none'
 }
 
 function addRow(){
