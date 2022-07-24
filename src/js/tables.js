@@ -5,7 +5,7 @@ const db = new DB()
 db.makeTable('test', ['lol', 'testing', 'xd']);
 
 function createTable(name) {
-    var inc_num = 0 
+    var inc_num = 0
     const tableHead = document.getElementById("tableHead")
     var fields = db.returnFields(name);
     var rows = db.getTable(name);
@@ -20,15 +20,20 @@ function createTable(name) {
         childElement.innerHTML = `${fields[i]}`;
         headElement.appendChild(childElement)
     }
+    var childElement = document.createElement('th');
+    childElement.setAttribute('scope', 'column');
+    childElement.innerHTML = "id";
+    headElement.appendChild(childElement)
     tableHead.appendChild(headElement)
     const tableBody = document.getElementById("tableBody")
     for (var i = 0; i < rows.length; i++) {
         inc_num++
-        var element = document.createElement('tr'); 
+        var element = document.createElement('tr');
         var childElement = document.createElement('th');
         childElement.innerHTML = inc_num;
         element.appendChild(childElement)
-        for (var j = 0; j < (Object.keys(rows[i]).length - 1); j++) {
+        console.log(Object.keys(rows[i]));
+        for (var j = 0; j < (Object.keys(rows[i]).length); j++) {
             var objkeys = Object.keys(rows[i]);
             var childElement = document.createElement('th');
             childElement.innerHTML = rows[i][`${objkeys[j]}`];
@@ -39,7 +44,7 @@ function createTable(name) {
     document.getElementById('loadingAnim').style.display = 'none'
 }
 
-function addRow(){
+function addRow() {
 
 }
 
